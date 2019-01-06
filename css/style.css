@@ -1,0 +1,411 @@
+
+/* basic */
+body {
+    display: none;
+    background-color: #fff;
+}
+p {
+    margin-bottom: 0px !important;
+}
+hr {
+    margin: 0;
+}
+section {
+    width: 100%;
+    padding: 25px;
+}
+section:nth-child(even){
+    background-color: #009b72;
+    color: #fff;
+}
+
+/* Navigation */
+.navbar{
+  transition: all ease-in-out .75s !important;
+}
+.nav-link{
+  filter: drop-shadow(0 0 5px #000);
+  outline: 0; /* removes annoying dotted outline */
+}
+.bg-transparent {
+    background: rgba(0,0,0,.3) !important;
+}
+.bg-dark{
+  background: rgba(0,155,114,1) !important;
+}
+#social-media-nav {
+    padding: 0;
+    margin: 0;
+}
+#social-media-nav > li > a{
+    color: #fff;
+    font-size: 1.5em;
+    filter: drop-shadow(0 0 5px #000);
+}
+
+/* Cover */
+.cover {
+    background-color: #000;
+    height: 100vh;
+    margin-top: -5px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cover > h1 {
+    text-align: center;
+    font-size: 3em;
+    font-family: Arial;
+    color: #03A678;
+    filter: drop-shadow(0 0 5px #000);
+    padding: 20px;
+    margin: 15px;
+    z-index: 1;
+}
+.videoCover {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+#player {
+    width: 100%;
+    height: 56vw;
+}
+#playerCover { /* div covers video to hide YT player info. */
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.imageCover {
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-image: url("../media/ZackThrash5.png");
+    background-position: center;
+    background-size: cover;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Mute Button */
+.muteButtonContainer {
+    position: absolute;
+    bottom:0;
+    left:0;
+    margin:1em;
+}
+
+label{
+  position:relative;
+}
+label input[type="checkbox"]{
+  opacity: 0;
+  display: none;
+}
+label input[type="checkbox"]:checked ~ .check{
+  border-color: #fff
+}
+.check{
+  display: block;
+  width: 40px;
+  height: 20px;
+  border:2px solid #222;
+  border-radius: 40px;
+  margin-right: 0px;
+  transition: .5s;
+}
+.check:before{
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border:1px solid transparent;
+  box-sizing: border-box;
+  transition: .5s;
+  box-shadow: inset 0 0 0 2px #222;
+  border-radius: 50%;
+  top: -0.5px;
+}
+label input[type="checkbox"]:checked ~ .check:before{
+  box-shadow: inset 0 0 0 2px #fff;
+  background-color: #fff;
+  transform:translateX(20px);
+}
+.text{
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 50px;
+  width: 40px;
+  font-size: 20px;
+  transition: .5s;
+  font-weight: bold;
+  color: #222;
+}
+.text.on{
+  transform: translateY(20px);
+  opacity: 0;
+}
+label input[type="checkbox"]:checked ~ .text.on{
+  transform: translateY(0px);
+  opacity: 1;
+  color: #fff;
+}
+.text.off{
+  transform: translateY(0px);
+  opacity: 1;
+}
+label input[type="checkbox"]:checked ~ .text.off{
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+/* Scroll Icon */
+.scroll-icon {
+    position: absolute;
+    bottom: 0;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+.scroll-icon {
+    outline: 0; /* removes annoying dotted outline */
+}
+.scroll-icon a {
+    outline: 0; /* removes annoying dotted outline */
+}
+.scroll-icon a:hover {
+    color: transparent;
+}
+.scroll-icon a span {
+  position: absolute;
+  bottom: 20px;
+  z-index: 1;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -2px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb07 2s infinite;
+  animation: sdb07 2s infinite;
+  opacity: 0;
+  box-sizing: border-box;
+}
+.scroll-icon a span:nth-of-type(1) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.scroll-icon a span:nth-of-type(2) {
+  bottom: 36px;
+  -webkit-animation-delay: .15s;
+  animation-delay: .15s;
+}
+.scroll-icon a span:nth-of-type(3) {
+  bottom: 52px;
+  -webkit-animation-delay: .3s;
+  animation-delay: .3s;
+}
+@-webkit-keyframes sdb07 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sdb07 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Content */
+.content-wrapper{
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+}
+.heading {
+    text-align: right;
+    /* margin: 0px 10px 0px 10px; */
+    padding: 8vh 0px 8vh 0px;
+}
+.shadow-border {
+    filter: drop-shadow(10px 10px 5px #3c3c3c);
+}
+#link {
+    padding: 0;
+    margin: 0;
+}
+.link-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.link-grid > div {
+    text-align: center;
+    align-items: center;
+    padding: 5px;
+}
+.link-icon{
+    color: #fff;
+    font-size: 3em;
+    padding: 0;
+    margin: 0;
+}
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+.about-grid > div {
+    /* margin: 0px 10px 0px 10px; */
+}
+.about-grid > div:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.about-grid > div:nth-child(2) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.music-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+.music-grid > div {
+    /* margin: 0px 10px 0px 10px; */
+}
+.music-grid > div:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    background-color: #000;
+    background-image: url("../media/ZackThrash3.jpg");
+    background-position: center;
+    background-size: cover;
+    font-size: 1em;
+    color: #fff;
+    min-height: 25vh;
+}
+footer a {
+    color: #d3d3d3 !important;
+}
+footer a:hover {
+    color: #fff !important;
+}
+.footer-wrapper {
+    position: relative;
+    background: rgba(81,13,10,.9) !important;
+    text-align: center;
+    padding: 1em;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+.footer-grid > div {
+    margin: 0px 10px 0px 10px;
+}
+.footer-grid > div:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    text-align: left;
+}
+.footer-grid > div:nth-child(2) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: right;
+}
+#footer-address{
+    padding-top: 25vh;
+    margin: 0;
+}
+#footer-nav {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .imageCover {
+        display: block;
+    }
+    .videoCover {
+        display: none;
+    }
+
+
+    #link {
+        min-height: auto;
+    }
+    .content-wrapper{
+        width: 100%;
+    }
+    .link-icon{
+        font-size: 2em;
+    }
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-grid > div:nth-child(1) {
+        grid-column-start: 1;
+        grid-column-end: 1;
+    }
+    .about-grid > div:nth-child(2) {
+        grid-column-start: 1;
+        grid-column-end: 1;
+    }
+    .music-grid {
+        grid-template-columns: 1fr;
+    }
+    .music-grid > div:nth-child(1) {
+        grid-column-start: 1;
+        grid-column-end: 1;
+    }
+    .music-grid > div:nth-child(2) {
+        grid-column-start: 1;
+        grid-column-end: 1;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid > div:nth-child(1) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        text-align: center;
+    }
+    .footer-grid > div:nth-child(2) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        text-align: center;
+    }
+}
